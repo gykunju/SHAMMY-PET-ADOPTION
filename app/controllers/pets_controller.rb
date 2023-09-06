@@ -31,4 +31,14 @@ class PetsController < ApplicationController
   def destroy
     @pet.destroy
   end
+
+  private
+
+  def set_pet
+    @pet = Pet.find(params[:id])
+  end
+
+  def pet_params
+    params.require(:pet).permit(:name, :species, :age, :image, :description, :adopter_id)
+  end
 end
