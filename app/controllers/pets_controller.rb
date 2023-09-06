@@ -19,4 +19,12 @@ class PetsController < ApplicationController
       render json: @pet.errors, status: :unprocessable_entity
     end
   end
+
+  def update
+    if @pet.update(pet_params)
+      render json: @pet
+    else
+      render json: @pet.errors, status: :unprocessable_entity
+    end
+  end
 end
