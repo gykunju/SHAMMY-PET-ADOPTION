@@ -2,8 +2,7 @@ class PetsController < ApplicationController
     before_action :set_pet, only: [:show, :update, :destroy]
 
   def index
-    pets = Pet.all
-    render json: pets
+    render json: Pet.all
   end
 
   def show
