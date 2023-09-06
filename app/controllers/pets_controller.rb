@@ -27,4 +27,8 @@ class PetsController < ApplicationController
       render json: @pet.errors, status: :unprocessable_entity
     end
   end
+
+  def destroy
+    @pet.destroy
+  end
 end
