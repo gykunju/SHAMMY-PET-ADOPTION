@@ -24,4 +24,4 @@ Pet.create(name: "Daisy", age: 3, image: "https://example.com/dog8.jpg", descrip
 Pet.create(name: "Leo", age: 2, image: "https://example.com/cat8.jpg", description: "Playful and curious cat looking for a forever family")
 Pet.create(name: "Charlie", age: 6, image: "https://example.com/dog9.jpg", description: "Lovable senior dog ready to be your best friend")
 Pet.create(name: "Lily", age: 5, image: "https://example.com/cat9.jpg", description: "Graceful and affectionate cat in need of a home")
-Pet.create(name: "Ruby", age: 2, image: "https://example.com/dog10.jpg", description: "Sweet and Charming")
+Pet.create(name: "Ruby", age: 2, image: "https://i.pinimg.com/564x/fd/9f/41/fd9f4180ea0f222efd336a4c8affc96e.jpg", description: "Sweet and Charming")
