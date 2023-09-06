@@ -10,4 +10,14 @@ class AdoptersController < ApplicationController
     render json: @adopter
   end
 
+  def create
+    @adopter = Adopter.new(adopter_params)
+
+    if @adopter.save
+      render json: @adopter, status: :created, location: @adopter
+    else
+      render json: @adopter.errors, status: :unprocessable_entity
+    end
+  end
+
 end
