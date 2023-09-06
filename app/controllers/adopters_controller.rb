@@ -32,5 +32,14 @@ class AdoptersController < ApplicationController
     @adopter.destroy
   end
 
+  private
+
+  def set_adopter
+    @adopter = Adopter.find(params[:id])
+  end
+
+  def adopter_params
+    params.require(:adopter).permit(:name, :contact_info, :email)
+  end
 
 end
