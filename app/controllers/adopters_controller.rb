@@ -20,4 +20,17 @@ class AdoptersController < ApplicationController
     end
   end
 
+  def update
+    if @adopter.update(adopter_params)
+      render json: @adopter
+    else
+      render json: @adopter.errors, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @adopter.destroy
+  end
+
+
 end
