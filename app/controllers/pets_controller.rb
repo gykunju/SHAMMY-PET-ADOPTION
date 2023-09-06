@@ -14,5 +14,7 @@ class PetsController < ApplicationController
 
     end
     private
-    def 
+    def pet_params
+        params.permit(:name, :image, :age, :description)
+    end
 end
