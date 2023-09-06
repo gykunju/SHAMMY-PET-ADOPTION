@@ -12,7 +12,7 @@
         age: Faker::Number.between(from: 1, to: 10),
         image: Faker::LoremFlickr.image(size: '300x300', search_terms: ['animals']),
         description: Faker::Lorem.sentence,
-        adopter: adopter
+        # adopter: adopter
       )
     end
   end
