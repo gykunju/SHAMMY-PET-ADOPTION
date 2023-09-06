@@ -1,2 +1,3 @@
 class Adopter < ApplicationRecord
-end
+    has_many :pets, dependent: :destroy
+  end
