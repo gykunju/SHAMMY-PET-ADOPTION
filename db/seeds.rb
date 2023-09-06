@@ -7,10 +7,10 @@
   
     5.times do
       Pet.create(
-        name: Faker::Creature::Name.name,
+        name: Faker::Name.name,
         species: Faker::Creature::Animal.name,
         age: Faker::Number.between(from: 1, to: 10),
-        image: Faker::LoremPixel.image(size: '300x300', is_gray: false, category: 'animals'),
+        image: Faker::LoremFlickr.image(size: '300x300', search_terms: ['animals']),
         description: Faker::Lorem.sentence,
         adopter: adopter
       )
