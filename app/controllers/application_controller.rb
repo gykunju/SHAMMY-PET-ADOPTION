@@ -3,6 +3,7 @@
 class ApplicationController < ActionController::API
     # include DeviseTokenAuth::Concerns::SetUserByToken # If you're using Devise Token Auth
     include ActionController::Cookies
+
     # include Pundit
   
     # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -13,4 +14,4 @@ class ApplicationController < ActionController::API
       render json: { error: 'Unauthorized' }, status: :unauthorized
     end
   end
-  
+

@@ -1,6 +1,12 @@
 
 Rails.application.routes.draw do
 
+
+  # Defines the root path route ("/")
+  # root "articles#index"
+
+  resources :adoptions
+
   get 'users', to: 'users#index'
   # devise_for :users, controllers: { registrations: 'registrations' }
  
@@ -13,5 +19,6 @@ Rails.application.routes.draw do
   end
 
   resources :pets, only: [:index, :show, :create]
+
 end
 
