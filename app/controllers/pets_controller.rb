@@ -48,10 +48,10 @@ class PetsController < ApplicationController
       params.require(:pet).permit(:name, :breed, :description)
     end
   
-  #   def authorize_admin
-  #     return if current_user.admin?
-  #     render json: { error: 'Unauthorized' }, status: :unauthorized
-  #   end
-  # end
+    def authorize_admin
+      return if current_user.admin?
+      render json: { error: 'Unauthorized' }, status: :unauthorized
+    end
+  end
   
 
