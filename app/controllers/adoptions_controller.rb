@@ -1,7 +1,10 @@
 class AdoptionsController < ApplicationController
+    
 
     def index
-        render json: Adoption.all
+        user_id = session[:user_id]
+        adoptions = Adoption.where(user_id: user_id)
+        render json: adoptions
     end
 
     def show
@@ -10,15 +13,18 @@ class AdoptionsController < ApplicationController
     end
 
     def create 
-        adoption = Adoption.create!(adoption_params)
-        render json: adoption
-    rescue ActiveRecord::RecordInvalid => e
-        render json: {error: e.error.full_message}
+        adoption = Adoption.new(adoption_params)
+        adoption.user_id = session[:user_id]
+        if adoption.save
+            render json: adoption
+        else
+            render json: {error: adoption.error.full_message}, status: :unprocessable_entity
+        end
     end
 
     private
 
     def adoption_params
-        params.permit(:location, :contact, :reason, :user_id, :pet_id)
+        params.require(:adoption).permit(:location, :contact, :reason, :pet_id, :user_id)
     end
 end
