@@ -42,11 +42,11 @@ class PetsController < ApplicationController
       head :no_content
     end
   
-  #   private
+    private
   
-  #   def pet_params
-  #     params.require(:pet).permit(:name, :breed, :description)
-  #   end
+    def pet_params
+      params.require(:pet).permit(:name, :breed, :description)
+    end
   
   #   def authorize_admin
   #     return if current_user.admin?
