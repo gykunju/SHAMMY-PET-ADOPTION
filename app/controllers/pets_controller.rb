@@ -1,4 +1,5 @@
 
+
 class PetsController < ApplicationController
     before_action :authenticate_user!
     before_action :authorize_admin, only: [:create, :update, :destroy]
@@ -45,7 +46,7 @@ class PetsController < ApplicationController
     private
   
     def pet_params
-      params.require(:pet).permit(:name, :breed, :description)
+      params.permit(:name, :image, :age, :description)
     end
   
     def authorize_admin
@@ -54,4 +55,3 @@ class PetsController < ApplicationController
     end
   end
   
-

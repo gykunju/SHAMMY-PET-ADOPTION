@@ -1,8 +1,9 @@
 
 Rails.application.routes.draw do
+
   get 'users', to: 'users#index'
   # devise_for :users, controllers: { registrations: 'registrations' }
-  resources :pets, only: [:index, :show]
+ 
   post 'signup', to: 'users#create'
   post 'login', to: 'users#show'
 
@@ -12,4 +13,8 @@ Rails.application.routes.draw do
   end
 end
 
+
+
+  resources :pets, only: [:index, :show, :create]
+end
 
