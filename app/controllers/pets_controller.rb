@@ -35,12 +35,12 @@ class PetsController < ApplicationController
       end
     end
   
-  #   # DELETE /pets/1
-  #   def destroy
-  #     @pet = Pet.find(params[:id])
-  #     @pet.destroy
-  #     head :no_content
-  #   end
+    # DELETE /pets/1
+    def destroy
+      @pet = Pet.find(params[:id])
+      @pet.destroy
+      head :no_content
+    end
   
   #   private
   
