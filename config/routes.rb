@@ -11,9 +11,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :pets, only: [:create, :update, :destroy]
   end
-end
-
-
 
   resources :pets, only: [:index, :show, :create]
 end

@@ -10,8 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema[7.0].define(version: 2023_09_07_063507) do
+  create_table "adopters", force: :cascade do |t|
+    t.string "name"
+    t.string "contact_info"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_06_091233) do
+  create_table "adoptions", force: :cascade do |t|
+    t.string "location"
+    t.integer "contact"
+    t.string "reason"
+    t.integer "user_id"
+    t.integer "pet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pets", force: :cascade do |t|
+    t.string "name"
+    t.string "species"
+    t.integer "age"
+    t.string "image"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "user_name", default: "", null: false
@@ -20,15 +47,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_091233) do
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
-
-  create_table "pets", force: :cascade do |t|
-    t.string "name"
-    t.integer "age"
-    t.string "description"
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-
   end
 
 end
