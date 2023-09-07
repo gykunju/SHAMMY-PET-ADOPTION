@@ -39,4 +39,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_063507) do
     t.datetime "updated_at", null: false
   end
 
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "user_name", default: "", null: false
+    t.string "password_digest", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
 end
