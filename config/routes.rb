@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :pets, only: [:create, :update, :destroy]
   end
 
-  resources :pets, only: [:index, :show, :create]
+  resources :pets, only: [:index, :show, :create, :update]
 
 end
 
