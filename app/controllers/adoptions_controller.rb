@@ -2,9 +2,11 @@ class AdoptionsController < ApplicationController
     
 
     def index
-        user_id = session[:user_id]
+        user_id = session(:user_id)
         adoptions = Adoption.where(user_id: user_id)
-        render json: adoptions
+        pet_ids = adoptions.pluck(:pet_id)
+        pets = Pet.where(id: pet_ids)
+        render json: pets
     end
 
     def show
@@ -14,7 +16,7 @@ class AdoptionsController < ApplicationController
 
     def create 
         adoption = Adoption.new(adoption_params)
-        adoption.user_id = session[:user_id]
+        adoption.user_id = session(:user_id)
         if adoption.save
             render json: adoption
         else
