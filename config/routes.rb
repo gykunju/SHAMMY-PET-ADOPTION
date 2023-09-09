@@ -12,6 +12,7 @@ Rails.application.routes.draw do
  
   post 'signup', to: 'users#create'
   post 'login', to: 'users#show'
+  delete 'logout'
 
   # Define separate routes for admin actions (create, update, destroy)
   namespace :admin do
