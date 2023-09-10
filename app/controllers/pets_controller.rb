@@ -1,7 +1,8 @@
 
+
 class PetsController < ApplicationController
-    before_action :authenticate_user!
-    before_action :authorize_admin, only: [:create, :update, :destroy]
+    # before_action :authenticate_user!
+    # before_action :authorize_admin, only: [:create, :update, :destroy]
   
     # GET /pets
     def index
@@ -45,13 +46,12 @@ class PetsController < ApplicationController
     private
   
     def pet_params
-      params.require(:pet).permit(:name, :breed, :description)
+      params.permit(:name, :image, :species, :age, :description)
     end
   
-    def authorize_admin
-      return if current_user.admin?
-      render json: { error: 'Unauthorized' }, status: :unauthorized
-    end
+    # def authorize_admin
+    #   return unless current_user.admin 
+    #   render json: { error: 'Unauthorized' }, status: :unauthorized
+    # end
   end
   
-

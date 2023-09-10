@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :validation
+  
 
   def index
     render json: User.all, except: ['created_at','updated_at','password_digest'], status: :ok
   end
+
   def create
     user = User.create!(user_params)
     session[:user_id] = user.id
@@ -23,7 +25,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:user_name,:password,:email)
+    params.permit(:user_name, :password, :email)
   end
 
   def validation(invalid)

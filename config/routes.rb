@@ -1,15 +1,25 @@
 
 Rails.application.routes.draw do
+
+
+  # Defines the root path route ("/")
+  # root "articles#index"
+
+  resources :adoptions
+
   get 'users', to: 'users#index'
   # devise_for :users, controllers: { registrations: 'registrations' }
-  resources :pets, only: [:index, :show]
+ 
   post 'signup', to: 'users#create'
   post 'login', to: 'users#show'
+  # delete 'logout'
 
   # Define separate routes for admin actions (create, update, destroy)
   namespace :admin do
     resources :pets, only: [:create, :update, :destroy]
   end
-end
 
+  resources :pets, only: [:index, :show, :create, :update]
+
+end
 
