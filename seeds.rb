@@ -1,4 +1,4 @@
-User.destroy_all
+#User.destroy_all
 # Create an admin user
 admin_user = User.create(
   user_name: 'sharon_username',
