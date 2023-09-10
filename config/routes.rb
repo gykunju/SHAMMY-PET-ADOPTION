@@ -15,11 +15,11 @@ Rails.application.routes.draw do
   # delete 'logout'
 
   # Define separate routes for admin actions (create, update, destroy)
-  namespace :admin do
-    resources :pets, only: [:create, :update, :destroy]
-  end
+  # namespace :admin do
+  #   resources :pets, only: [:create, :update, :destroy]
+  # end
 
-  resources :pets, only: [:index, :show, :create, :update]
+  resources :pets, only: [:index, :show, :create, :update, :destroy]
 
 end
 
