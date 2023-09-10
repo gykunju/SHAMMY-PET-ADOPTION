@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_07_063507) do
-  create_table "adopters", force: :cascade do |t|
-    t.string "name"
-    t.string "contact_info"
-    t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+ActiveRecord::Schema[7.0].define(version: 2023_09_07_194013) do
   create_table "adoptions", force: :cascade do |t|
     t.string "location"
     t.integer "contact"
@@ -32,13 +24,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_063507) do
   create_table "pets", force: :cascade do |t|
     t.string "name"
     t.string "species"
-    t.integer "age"
     t.string "image"
+    t.integer "age"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
