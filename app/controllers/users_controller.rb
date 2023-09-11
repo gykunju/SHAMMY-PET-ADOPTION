@@ -7,7 +7,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create!(user_params)
+    encrypted_password = BCrypt::Password.create(params[:password])
+
+    user = User.create!(user_params.merge(password: encrypted_password))
     session[:user_id] = user.id
     render json: user, except: ['created_at','updated_at','password_digest'], status: :created
   end
