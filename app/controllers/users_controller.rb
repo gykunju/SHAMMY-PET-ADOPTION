@@ -23,6 +23,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    session.delete(:user_id)
+    render json: { message: 'Logged out successfully' }, status: :ok
+  end
+  
+
   private
 
   def user_params
