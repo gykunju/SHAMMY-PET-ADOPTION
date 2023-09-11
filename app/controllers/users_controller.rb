@@ -1,15 +1,14 @@
 class UsersController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :validation
-  
+  require 'byebug'
 
   def index
     render json: User.all, except: ['created_at','updated_at','password_digest'], status: :ok
   end
 
   def create
-    encrypted_password = BCrypt::Password.create(params[:password])
-
-    user = User.create!(user_params.merge(password: encrypted_password))
+    # encrypted_password = BCrypt::Password.create(params[:password])
+    user = User.create!(user_params)
     session[:user_id] = user.id
     render json: user, except: ['created_at','updated_at','password_digest'], status: :created
   end
@@ -17,7 +16,7 @@ class UsersController < ApplicationController
   def show
     user = User.find_by(email: params[:email])
     if user&.authenticate(params[:password])
-        session[:user_id] = user.id
+      session[:user_id] = user.id
         render json: user, except: ['created_at','updated_at','password_digest'], status: :created
     else
       render json: {error: 'Email or password incorrect'}, status: :unauthorized

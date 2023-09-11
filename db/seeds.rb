@@ -1,3 +1,5 @@
+User.destroy_all
+Pet.destroy_all
 
 # Create an admin user
 admin_user = User.create(
@@ -13,6 +15,13 @@ admin_user2 = User.create(
   email: 'cynthia@example.com',
   password: 'password2',
   admin: true
+)
+
+admin_user3 = User.create(
+  user_name: 'lennie_username',
+  email: 'lennie@example.com',
+  password: 'password3',
+  admin: false
 )
 
 
