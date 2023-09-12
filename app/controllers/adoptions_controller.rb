@@ -2,11 +2,11 @@ class AdoptionsController < ApplicationController
     
 
     def index
-        user_id = session[:user_id]
-        adoptions = Adoption.where(user_id: user_id)
-        pet_ids = adoptions.pluck(:pet_id)
-        pets = Pet.where(id: pet_ids)
-        render json: pets
+        # user_id = session[:user_id]
+        # adoptions = Adoption.where(user_id: user_id)
+        # pet_ids = adoptions.pluck(:pet_id)
+        # pets = Pet.where(id: pet_ids)
+        render json: Pet.all
     end
 
     def show

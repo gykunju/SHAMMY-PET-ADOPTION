@@ -7,6 +7,12 @@ Rails.application.routes.draw do
 
   resources :adoptions
 
+  resources :pets do
+    member do
+      patch 'adopt'
+    end
+  end
+
   get 'users', to: 'users#index'
   # devise_for :users, controllers: { registrations: 'registrations' }
  
