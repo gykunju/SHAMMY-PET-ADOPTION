@@ -1,10 +1,6 @@
 
 Rails.application.routes.draw do
 
-
-  # Defines the root path route ("/")
-  # root "articles#index"
-
   resources :adoptions
 
   resources :pets do
@@ -21,11 +17,6 @@ Rails.application.routes.draw do
   delete 'logout', to: 'users#destroy'
 
   resources :users
-
-  # Define separate routes for admin actions (create, update, destroy)
-  # namespace :admin do
-  #   resources :pets, only: [:create, :update, :destroy]
-  # end
 
   resources :pets, only: [:index, :show, :create, :destroy]
 
