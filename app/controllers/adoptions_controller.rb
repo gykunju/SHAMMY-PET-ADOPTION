@@ -20,7 +20,7 @@ class AdoptionsController < ApplicationController
         if adoption.save
             render json: adoption
         else
-            render json: {error: adoption.error.full_message}, status: :unprocessable_entity
+            render json: {error: adoption.errors.full_message}, status: :unprocessable_entity
         end
     end
 
