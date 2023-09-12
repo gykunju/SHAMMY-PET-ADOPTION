@@ -35,6 +35,12 @@ class PetsController < ApplicationController
         render json: @pet.errors, status: :unprocessable_entity
       end
     end
+
+    def adopt
+      @pet = Pet.find(params[:id])
+      @pet.update(isAdopted: true)
+      render json: @pet
+    end
   
     # DELETE /pets/1
     def destroy
@@ -48,10 +54,5 @@ class PetsController < ApplicationController
     def pet_params
       params.permit(:name, :image, :species, :age, :description)
     end
-  
-    # def authorize_admin
-    #   return unless current_user.admin 
-    #   render json: { error: 'Unauthorized' }, status: :unauthorized
-    # end
   end
   
