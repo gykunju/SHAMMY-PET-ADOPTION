@@ -48,6 +48,8 @@ Access the API by making requests to http://localhost:3000.
 The application uses a PostgreSQL database to store pet listings, adoption requests, and user information.
 # Authentication
 User authentication is implemented using JWT (JSON Web Tokens).
+## Frontend link
+git@github.com:gykunju/GROUP-5---SHAMMY-PET-ADOPTION-FRONTEND.git
 
 # License
 This project is licensed under the MIT License - see the LICENSE file for details.
